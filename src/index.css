@@ -1,0 +1,31 @@
+* {
+  font-family: 'Antic Didone', serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  background-image: url('./images/background.jpg');
+  background-color: #234143;
+}
+.whenPrinted2 {
+  display: none;
+}
+@media print {
+  .whenPrinted {
+    color: black !important;
+  }
+  .whenPrinted2 {
+    display: block;
+  }
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* bhmvq1@gmail.com
+bhmvq2019
+&formspree&formkeep&segment&github
+*/
