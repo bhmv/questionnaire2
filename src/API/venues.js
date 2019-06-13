@@ -1097,7 +1097,7 @@ const venues = [
     ID: 9666,
     Type: 'simple',
     SKU: '',
-    Name: 'The Bath Club',
+    Name: 'The Bath Club NY',
     Published: 1,
     featured: 1,
     'Visibility in catalog': 'visible',
@@ -1126,7 +1126,7 @@ const venues = [
     Tags: '',
     'Shipping class': '',
     Images:
-      'http://0gl.c12.myftpupload.com/wp-content/uploads/2019/05/bath-club-wedding-venue-miami-beach-1.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxRy2IrkRzs9E67ZGD9k-KXm0a-_u7bQyLact64gNpHe7aupTk4w',
     'Download limit': '',
     'Download expiry days': '',
     Parent: '',

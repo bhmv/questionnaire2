@@ -1,6 +1,6 @@
 import React from 'react';
-import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import ReactToPrint from 'react-to-print';
 import venues from './API/venues';
 import './App.css';
@@ -169,8 +169,9 @@ class SixthComponent extends React.Component {
               noValidate
               action='https://formspree.io/bhmvq1@gmail.com'
               method='POST'
-              target='output_frame'
+              target='_blank'
             >
+              {/* TODO: */}
               <div className='form-row'>
                 <div className='col-md-4 mb-3'>
                   <input
@@ -189,7 +190,7 @@ class SixthComponent extends React.Component {
               <div className='form-row'>
                 <div className='col-md-4 mb-3'>
                   <input
-                    type='number'
+                    type='text'
                     className='form-control bhInput'
                     id='validationTooltip02'
                     placeholder='PHONE'
@@ -419,7 +420,7 @@ class ShowWhileDelayed extends React.Component {
 const Loading = props => {
   return (
     <div className='text-center loadingDiv'>
-      <img src={loading} alt='Personalizing...' className='HOVE2' />
+      <img src={loading} alt='Personalizing...' className='HOVE3' />
       <h1 className='aHeadings mt-5'>{props.process}</h1>
     </div>
   );
@@ -885,7 +886,6 @@ class App extends React.Component {
         key={filter.key}
         onClick={() => this.selectFilter2(filter)}
       >
-        {/* TODO: */}
         <img
           className='HOVE2'
           src={
@@ -1243,6 +1243,9 @@ class App extends React.Component {
     });
     const segment = `form submitted`;
     window.analytics.track(segment);
+    window.analytics.identify('userId12345', {
+      email: 'lkdevtst@gmail.com'
+    });
   };
   StartOverTheApp = () => {
     // this.setState({
