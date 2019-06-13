@@ -9,9 +9,9 @@ import Header from './Header';
 
 import loading from './images/loading.svg';
 
-// import corporate from './images/occasion/corporate.png';
-// import weddings from './images/occasion/weddings.png';
-// import social from './images/occasion/social.png';
+import corporate from './images/occasion/corporate.png';
+import weddings from './images/occasion/weddings.png';
+import social from './images/occasion/social.png';
 
 import ballroom from './images/type/ballroom.png';
 import church from './images/type/church.png';
@@ -47,16 +47,16 @@ import southmiami from './images/locations/southmiami.png';
 
 import placeholder from './images/other/placeholder.png';
 
-// const FirstComponent = props => {
-//   return (
-//     <div className='container'>
-//       <h1 className='text-center qHeadings mb-5'>What are you celebrating?</h1>
-//       <div className='row' onClick={props.ToNextComp}>
-//         {props.filterBy}
-//       </div>
-//     </div>
-//   );
-// };
+const FirstComponent = props => {
+  return (
+    <div className='container'>
+      <h1 className='text-center qHeadings mb-5'>What are you celebrating?</h1>
+      <div className='row' onClick={props.ToNextComp}>
+        {props.filterBy}
+      </div>
+    </div>
+  );
+};
 
 const SecondComponent = props => {
   return (
@@ -137,7 +137,6 @@ const FifthComponent = props => {
     </div>
   );
 };
-// TODO:
 class SixthComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -259,16 +258,16 @@ class SeventhComponent extends React.Component {
           Thanks for telling us about your event!
         </h1>
         <div className='text-center'>
-          <button className='backBtn backBtnEnd mt-5 mb-5'>
-            <ReactToPrint
-              trigger={() => (
+          <ReactToPrint
+            trigger={() => (
+              <button className='backBtn backBtnEnd mt-5 mb-5'>
                 <a className='print' href='#'>
                   SAVE
                 </a>
-              )}
-              content={() => this.componentRef}
-            />
-          </button>
+              </button>
+            )}
+            content={() => this.componentRef}
+          />
         </div>
 
         <div className='row' ref={el => (this.componentRef = el)}>
@@ -420,7 +419,7 @@ class ShowWhileDelayed extends React.Component {
 const Loading = props => {
   return (
     <div className='text-center loadingDiv'>
-      <img src={loading} alt='Personalizing...' />
+      <img src={loading} alt='Personalizing...' className='HOVE2' />
       <h1 className='aHeadings mt-5'>{props.process}</h1>
     </div>
   );
@@ -437,7 +436,8 @@ class App extends React.Component {
       // selectedFilter4: 'All',
       // selectedFilter5: 'All',
       // menu: { open: false },
-      cmp2: true,
+      cmp: true,
+      cmp2: false,
       test: true,
       filteredOut1: [],
       filteredOut2: [],
@@ -533,8 +533,8 @@ class App extends React.Component {
     let three = this.state.filteredOut4.filter(venue =>
       venue.budget.includes(`${filter.filter3}`)
     );
-    let featured = venues.filter(venue => venue.featured === 1);
-    let four = one.concat(two, three, featured);
+    // let featured = venues.filter(venue => venue.featured === 1);
+    let four = one.concat(two, three);
     this.setState({
       // selectedFilter5: filter,
       // venues:
@@ -546,24 +546,24 @@ class App extends React.Component {
   };
 
   render() {
-    // const filters = [
-    //   // { key: 'All', value: '' },
-    //   {
-    //     key: 'Corporate',
-    //     value: 'corporate',
-    //     filter: 'Corporate, Social, Wedding'
-    //   },
-    //   {
-    //     key: 'Weddings',
-    //     value: 'weddings',
-    //     filter: 'Corporate, Social, Wedding'
-    //   },
-    //   {
-    //     key: 'Social',
-    //     value: 'social',
-    //     filter: 'Corporate, Social, Wedding'
-    //   }
-    // ];
+    const filters = [
+      // { key: 'All', value: '' },
+      {
+        key: 'Corporate',
+        value: 'corporate',
+        filter: 'Corporate, Social, Wedding'
+      },
+      {
+        key: 'Weddings',
+        value: 'weddings',
+        filter: 'Corporate, Social, Wedding'
+      },
+      {
+        key: 'Social',
+        value: 'social',
+        filter: 'Corporate, Social, Wedding'
+      }
+    ];
 
     const filters2 = [
       // { key: 'All', value: '' },
@@ -839,41 +839,42 @@ class App extends React.Component {
         filter2: '100k+'
       }
     ];
-    // const tabItems = filters.map(filter => (
-    //   <div
-    //     className={
-    //       filter === this.state.selectedFilter
-    //         ? 'col-sm text-center pointerWhole'
-    //         : 'col-sm text-center pointerWhole'
-    //     }
-    //     key={filter.key}
-    //     onClick={() => this.selectFilter(filter)}
-    //   >
-    //     <div className='mobileAlign1 d-flex'>
-    //       <div className='column mt-5'>
-    //         <img
-    //           src={
-    //             filter.value === 'corporate'
-    //               ? corporate
-    //               : filter.value === 'weddings'
-    //               ? weddings
-    //               : filter.value === 'social'
-    //               ? social
-    //               : null
-    //           }
-    //           alt=''
-    //           style={{ width: '100%' }}
-    //         />
-    //         <br />
-    //         <p className='text-center mt-3 '>
-    //           <a className='aHeadings' href='#0'>
-    //             {filter.key}
-    //           </a>
-    //         </p>
-    //       </div>
-    //     </div>
-    //   </div>
-    // ));
+    const tabItems = filters.map(filter => (
+      <div
+        className={
+          filter === this.state.selectedFilter
+            ? 'col-sm text-center pointerWhole'
+            : 'col-sm text-center pointerWhole'
+        }
+        key={filter.key}
+        onClick={() => this.selectFilter(filter)}
+      >
+        <div className='mobileAlign1 d-flex'>
+          <div className='column mt-5'>
+            <img
+              className='HOVE2'
+              src={
+                filter.value === 'corporate'
+                  ? corporate
+                  : filter.value === 'weddings'
+                  ? weddings
+                  : filter.value === 'social'
+                  ? social
+                  : null
+              }
+              alt=''
+              style={{ width: '100%' }}
+            />
+            <br />
+            <p className='text-center mt-3 '>
+              <a className='aHeadings' href='#0'>
+                {filter.key}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    ));
     const tabItems2 = filters2.map(filter => (
       <div
         className={
@@ -884,7 +885,9 @@ class App extends React.Component {
         key={filter.key}
         onClick={() => this.selectFilter2(filter)}
       >
+        {/* TODO: */}
         <img
+          className='HOVE2'
           src={
             filter.value === 'ballroom'
               ? ballroom
@@ -946,6 +949,7 @@ class App extends React.Component {
         onClick={() => this.selectFilter3(filter)}
       >
         <img
+          className='HOVE2'
           src={
             filter.value === 'browardcounty'
               ? browardcounty
@@ -1023,28 +1027,28 @@ class App extends React.Component {
     return (
       <div>
         <Header StartOverTheApp={this.StartOverTheApp} />
-        {/* {this.state.cmp && (
+        {this.state.cmp && (
           <div>
             <FirstComponent
               ToNextComp={this.ToSecondComponentFunc}
               filterBy={tabItems}
             />
           </div>
-        )} */}
+        )}
 
         {this.state.cmp2 && (
           <div>
-            {/* <ShowDelayed wait={2000}> */}
-            <SecondComponent
-              filterBy2={tabItems2}
-              ToNextComp={this.ToThirdComponentFunc}
-              ToPreviousComp={this.FromSecondBackToFirstFunc}
-            />
-            {/* <h1 className='text-center qHeadings mb-5'>Comming soon...</h1> */}
-            {/* </ShowDelayed> */}
-            {/* <ShowWhileDelayed wait={2000}>
+            <ShowDelayed wait={2000}>
+              <SecondComponent
+                filterBy2={tabItems2}
+                ToNextComp={this.ToThirdComponentFunc}
+                ToPreviousComp={this.FromSecondBackToFirstFunc}
+              />
+              <h1 className='text-center qHeadings mb-5'>Comming soon...</h1>
+            </ShowDelayed>
+            <ShowWhileDelayed wait={2000}>
               <Loading process={'Finding your best match...'} />
-            </ShowWhileDelayed> */}
+            </ShowWhileDelayed>
           </div>
         )}
 
