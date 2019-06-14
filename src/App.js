@@ -14,6 +14,7 @@ import SeventhComponent from './components/SeventhComponent';
 import ShowDelayed from './components/ShowDelayed';
 import ShowWhileDelayed from './components/ShowWhileDelayed';
 import Loading from './components/Loading';
+import Popup from './components/Popup';
 
 import corporate from './images/occasion/corporate.png';
 import weddings from './images/occasion/weddings.png';
@@ -71,14 +72,22 @@ class App extends React.Component {
       filteredOut4: [],
       filteredOut5: venues.filter(venue => venue.featured === 1),
       value: '',
-      xxx: false
+      absoluteButton: false,
+      showPopup: false
     };
+
     this.handleChange = this.handleChange.bind(this);
     console.log(
       '%c%s',
       'color:red; background:blue; font-size: 20pt',
       'blah ;)'
     );
+  }
+
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
   }
 
   handleChange(event) {
@@ -668,7 +677,7 @@ class App extends React.Component {
         {/* TODO: */}
         <form
           id='contact-form'
-          className={!this.state.xxx ? 'displayNone' : null}
+          className={!this.state.absoluteButton ? 'displayNone' : null}
         >
           <input type='hidden' name='contact_number' />
 
@@ -699,8 +708,12 @@ class App extends React.Component {
             type='submit'
             value='Send'
             className='backBtn backBtnEnd sendFinalResultsButton'
+            onClick={this.togglePopup.bind(this)}
           />
         </form>
+        {this.state.showPopup ? (
+          <Popup text='Close Me' closePopup={this.togglePopup.bind(this)} />
+        ) : null}
         {/* TODO: */}
         {/* TODO: */}
         {/* TODO: */}
@@ -781,13 +794,6 @@ class App extends React.Component {
                 ToNextComp={this.ToSeventhComponentFunc}
                 ToPreviousComp={this.FromSixthBackToFifthFunc}
               /> */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
               <div className='container'>
                 <h1 className='text-center qHeadings mb-5'>
                   Let us contact you to discuss your next event!
@@ -873,15 +879,6 @@ class App extends React.Component {
                   </button>
                 </div>
               </div>
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
-              {/* TODO: */}
             </ShowDelayed>
             <ShowWhileDelayed wait={2000}>
               <Loading process={'Finalizing the results...'} />
@@ -1020,9 +1017,11 @@ class App extends React.Component {
       cmp4: false,
       cmp5: false,
       cmp6: false,
-      cmp7: true,
-      xxx: true
+      cmp7: true
     });
+    setInterval(() => {
+      this.setState({ absoluteButton: true });
+    }, 4000);
     const segment = `form submitted`;
     window.analytics.track(segment);
     window.analytics.identify('userId12345', {
