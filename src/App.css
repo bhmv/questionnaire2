@@ -320,3 +320,11 @@ img:hover {
 .HOVE3:hover::after {
   opacity: 1;
 }
+.displayNone {
+  display: none;
+}
+.sendFinalResultsButton {
+  position: absolute;
+  left: 40%;
+  top: 3%;
+}

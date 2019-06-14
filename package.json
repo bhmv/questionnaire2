@@ -5,6 +5,7 @@
   "homepage": "https://bhmv.github.io/questionnaire2/",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "emailjs-com": "^2.3.2",
     "gh-pages": "^2.0.1",
     "html2canvas": "^1.0.0-rc.3",
     "jspdf": "^1.5.3",

@@ -137,106 +137,91 @@ const FifthComponent = props => {
     </div>
   );
 };
-class SixthComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { inputName: '' };
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
-    this.setState({ inputName: event.target.inputName });
-  }
-  render() {
-    return (
-      <div className='container'>
-        <h1 className='text-center qHeadings mb-5'>
-          Let us contact you to discuss your next event!
-        </h1>
 
-        <div className='row mt-5'>
-          <div className='col-sm' />
-          <div className='col-sm'>
-            <iframe
-              className='iframe'
-              name='output_frame'
-              src=''
-              id='output_frame'
-              width='300px'
-              height='300px'
-            />
-            <form
-              className='needs-validation mobileInputAlign'
-              noValidate
-              action='https://formspree.io/bhmvq1@gmail.com'
-              method='POST'
-              target='_blank'
-            >
-              {/* TODO: */}
-              <div className='form-row'>
-                <div className='col-md-4 mb-3'>
-                  <input
-                    type='text'
-                    className='form-control bhInput'
-                    id='validationTooltip01'
-                    placeholder='NAME'
-                    required
-                    name='name'
-                    value={this.state.inputName}
-                    onChange={this.handleChange}
-                  />
-                  <div className='valid-tooltip'>Looks good!</div>
-                </div>
-              </div>
-              <div className='form-row'>
-                <div className='col-md-4 mb-3'>
-                  <input
-                    type='text'
-                    className='form-control bhInput'
-                    id='validationTooltip02'
-                    placeholder='PHONE'
-                    required
-                  />
-                  <div className='valid-tooltip'>Looks good!</div>
-                </div>
-              </div>
-              <div className='form-row'>
-                <div className='col-md-4 mb-3'>
-                  <input
-                    type='email'
-                    className='form-control bhInput'
-                    id='validationTooltip02'
-                    placeholder='EMAIL'
-                    required
-                    name='_replyto'
-                  />
-                  <div className='valid-tooltip'>Looks good!</div>
-                </div>
-              </div>
+// const SixthComponent = props => {
+//   return (
+//     <div className='container'>
+//       <h1 className='text-center qHeadings mb-5'>
+//         Let us contact you to discuss your next event!
+//       </h1>
 
-              <button
-                className=' bhSubmitBtn'
-                type='submit'
-                value='Send'
-                onClick={this.props.ToNextComp}
-              >
-                SUBMIT
-              </button>
-            </form>
-          </div>
-          <div className='col-sm' />
-        </div>
-        <div className='text-center'>
-          <button
-            onClick={this.props.ToPreviousComp}
-            className='backBtn mt-5 mb-5'
-          >
-            BACK
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+//       <div className='row mt-5'>
+//         <div className='col-sm' />
+//         <div className='col-sm'>
+//           <iframe
+//             className='iframe'
+//             name='output_frame'
+//             src=''
+//             id='output_frame'
+//             width='300px'
+//             height='300px'
+//           />
+//           <form
+//             className='needs-validation mobileInputAlign'
+//             noValidate
+//             action='https://formspree.io/bhmvq1@gmail.com'
+//             method='POST'
+//             target='output_frame'
+//           >
+//             <div className='form-row'>
+//               <div className='col-md-4 mb-3'>
+//                 <input
+//                   type='text'
+//                   className='form-control bhInput'
+//                   id='validationTooltip01'
+//                   placeholder='NAME'
+//                   required
+//                   name='name'
+//                 />
+//                 <div className='valid-tooltip'>Looks good!</div>
+//               </div>
+//             </div>
+//             <div className='form-row'>
+//               <div className='col-md-4 mb-3'>
+//                 <input
+//                   type='text'
+//                   className='form-control bhInput'
+//                   id='validationTooltip02'
+//                   placeholder='PHONE'
+//                   required
+//                 />
+//                 <div className='valid-tooltip'>Looks good!</div>
+//               </div>
+//             </div>
+//             <div className='form-row'>
+//               <div className='col-md-4 mb-3'>
+//                 <input
+//                   type='email'
+//                   className='form-control bhInput'
+//                   id='validationTooltip02'
+//                   placeholder='EMAIL'
+//                   required
+//                   name='_replyto'
+//                 />
+//                 <div className='valid-tooltip'>Looks good!</div>
+//               </div>
+//             </div>
+
+//             <button
+//               className=' bhSubmitBtn'
+//               type='submit'
+//               value='Send'
+//               onClick={props.ToNextComp}
+//             >
+//               SUBMIT
+//             </button>
+//           </form>
+//         </div>
+//         <div className='col-sm' />
+//       </div>
+//       <div className='text-center'>
+//         <button onClick={props.ToPreviousComp} className='backBtn mt-5 mb-5'>
+//           BACK
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
 class SeventhComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -258,6 +243,7 @@ class SeventhComponent extends React.Component {
         <h1 className='text-center qHeadings mb-5'>
           Thanks for telling us about your event!
         </h1>
+
         <div className='text-center'>
           <ReactToPrint
             trigger={() => (
@@ -445,8 +431,9 @@ class App extends React.Component {
       filteredOut3: [],
       filteredOut4: [],
       filteredOut5: venues.filter(venue => venue.featured === 1),
-      inputName: ''
+      value: ''
     };
+    this.handleChange = this.handleChange.bind(this);
     console.log(
       '%c%s',
       'color:red; background:blue; font-size: 20pt',
@@ -454,6 +441,14 @@ class App extends React.Component {
     );
   }
 
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
   selectFilter = filter => {
     this.setState({
       // selectedFilter: filter,
@@ -1027,6 +1022,46 @@ class App extends React.Component {
     return (
       <div>
         <Header StartOverTheApp={this.StartOverTheApp} />
+
+        {/* TODO: */}
+        {/* TODO: */}
+        {/* TODO: */}
+        <form id='contact-form'>
+          <input type='hidden' name='contact_number' />
+
+          <input type='text' name='user_name' className='displayNone' />
+
+          <input
+            type='email'
+            name='user_email'
+            className='displayNone'
+            value={this.state.value}
+          />
+
+          <textarea
+            className='displayNone'
+            type='text'
+            name='contact'
+            value={this.state.filteredOut5.map(
+              venue =>
+                `${
+                  venue.Name
+                } URL: http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
+                  / +/g,
+                  '-'
+                ).toLowerCase()}`
+            )}
+          />
+          <input
+            type='submit'
+            value='Send'
+            className='backBtn backBtnEnd sendFinalResultsButton'
+          />
+        </form>
+        {/* TODO: */}
+        {/* TODO: */}
+        {/* TODO: */}
+
         {this.state.cmp && (
           <div>
             <FirstComponent
@@ -1099,10 +1134,111 @@ class App extends React.Component {
         {this.state.cmp6 && (
           <div>
             <ShowDelayed wait={2000}>
-              <SixthComponent
+              {/* <SixthComponent
                 ToNextComp={this.ToSeventhComponentFunc}
                 ToPreviousComp={this.FromSixthBackToFifthFunc}
-              />
+              /> */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              <div className='container'>
+                <h1 className='text-center qHeadings mb-5'>
+                  Let us contact you to discuss your next event!
+                </h1>
+
+                <div className='row mt-5'>
+                  <div className='col-sm' />
+                  <div className='col-sm'>
+                    <iframe
+                      className='iframe'
+                      name='output_frame'
+                      src=''
+                      id='output_frame'
+                      width='300px'
+                      height='300px'
+                    />
+                    <form
+                      className='needs-validation mobileInputAlign'
+                      noValidate
+                      action='https://formspree.io/bhmvq1@gmail.com'
+                      method='POST'
+                      target='output_frame'
+                    >
+                      <div className='form-row'>
+                        <div className='col-md-4 mb-3'>
+                          <input
+                            type='text'
+                            className='form-control bhInput'
+                            id='validationTooltip01'
+                            placeholder='NAME'
+                            required
+                            name='name'
+                          />
+                          <div className='valid-tooltip'>Looks good!</div>
+                        </div>
+                      </div>
+                      <div className='form-row'>
+                        <div className='col-md-4 mb-3'>
+                          <input
+                            type='text'
+                            className='form-control bhInput'
+                            id='validationTooltip02'
+                            placeholder='PHONE'
+                            required
+                          />
+                          <div className='valid-tooltip'>Looks good!</div>
+                        </div>
+                      </div>
+                      <div className='form-row'>
+                        <div className='col-md-4 mb-3'>
+                          <input
+                            type='email'
+                            className='form-control bhInput'
+                            id='validationTooltip02'
+                            placeholder='EMAIL'
+                            required
+                            name='_replyto'
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                          />
+                          <div className='valid-tooltip'>Looks good!</div>
+                        </div>
+                      </div>
+
+                      <button
+                        className=' bhSubmitBtn'
+                        type='submit'
+                        value='Send'
+                        onClick={this.ToSeventhComponentFunc}
+                      >
+                        SUBMIT
+                      </button>
+                    </form>
+                  </div>
+                  <div className='col-sm' />
+                </div>
+                <div className='text-center'>
+                  <button
+                    onClick={this.FromSixthBackToFifthFunc}
+                    className='backBtn mt-5 mb-5'
+                  >
+                    BACK
+                  </button>
+                </div>
+              </div>
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
+              {/* TODO: */}
             </ShowDelayed>
             <ShowWhileDelayed wait={2000}>
               <Loading process={'Finalizing the results...'} />
@@ -1125,6 +1261,7 @@ class App extends React.Component {
       </div>
     );
   }
+
   FromSecondBackToFirstFunc = () => {
     this.setState({
       // ...this.state,
@@ -1132,6 +1269,7 @@ class App extends React.Component {
       cmp2: false
     });
   };
+
   ToSecondComponentFunc = () => {
     this.setState({
       // ...this.state,
