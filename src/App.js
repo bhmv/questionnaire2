@@ -14,6 +14,7 @@ import SeventhComponent from './components/SeventhComponent';
 import ShowDelayed from './components/ShowDelayed';
 import ShowWhileDelayed from './components/ShowWhileDelayed';
 import Loading from './components/Loading';
+import Popup from './components/Popup';
 
 import corporate from './images/occasion/corporate.png';
 import weddings from './images/occasion/weddings.png';
@@ -701,16 +702,17 @@ class App extends React.Component {
           />
           <input
             type='submit'
-            value={
-              this.state.resultsSent === true ? 'Venues Have Been Sent' : 'Send'
-            }
+            value={this.state.resultsSent === true ? 'Sent' : 'Send'}
             className='backBtn backBtnEnd sendFinalResultsButton'
             onClick={this.sendEmailWithResults.bind(this)}
           />
+          {this.state.resultsSent ? (
+            <Popup
+              text='Venues have been sent to your email'
+              closePopup={this.sendEmailWithResults.bind(this)}
+            />
+          ) : null}
         </form>
-        {/* TODO: */}
-        {/* TODO: */}
-        {/* TODO: */}
 
         {this.state.cmp && (
           <div>

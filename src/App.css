@@ -341,3 +341,9 @@ img:hover {
     margin-top: 10% !important;
   }
 }
+.popup {
+  position: absolute;
+  top: 377px;
+  left: 75%;
+  color: white;
+}
