@@ -37,7 +37,7 @@
   letter-spacing: 0.73px;
   text-align: center;
   line-height: 52px;
-  margin-top: 175px;
+  /* margin-top: 175px; */
 }
 .aHeadings {
   font-size: 23px;
@@ -325,6 +325,19 @@ img:hover {
 }
 .sendFinalResultsButton {
   position: absolute;
-  left: 60%;
-  top: 432px;
+  left: 50%;
+  top: 358px;
+}
+.console {
+  margin-right: 25%;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .sendFinalResultsButton {
+    left: 20%;
+    top: 432px;
+  }
+  .console {
+    margin-right: 2%;
+    margin-top: 10% !important;
+  }
 }

@@ -20,13 +20,13 @@ class SeventhComponent extends React.Component {
     return (
       <div className='container'>
         <h1 className='text-center qHeadings mb-5'>
-          Thanks for telling us about your event!
+          Check out our venue recommendations that best fit your needs.
         </h1>
 
         <div className='text-center'>
           <ReactToPrint
             trigger={() => (
-              <button className='backBtn backBtnEnd mt-5 mb-5'>
+              <button className='backBtn backBtnEnd mt-5 mb-5 console'>
                 <a className='print' href='#'>
                   SAVE
                 </a>

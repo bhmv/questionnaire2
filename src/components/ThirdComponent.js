@@ -7,9 +7,7 @@ class ThirdComponent extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='text-center qHeadings mb-5'>
-          Preferred geographical area
-        </h1>
+        <h1 className='text-center qHeadings mb-5'>Pick your preferred area</h1>
         <div className='row' onClick={this.props.ToNextComp}>
           {this.props.filterBy3}
         </div>

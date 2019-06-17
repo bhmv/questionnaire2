@@ -702,7 +702,7 @@ class App extends React.Component {
           <input
             type='submit'
             value={
-              this.state.resultsSent === true ? 'Check Your Email' : 'Send'
+              this.state.resultsSent === true ? 'Venues Have Been Sent' : 'Send'
             }
             className='backBtn backBtnEnd sendFinalResultsButton'
             onClick={this.sendEmailWithResults.bind(this)}
@@ -729,7 +729,6 @@ class App extends React.Component {
                 ToNextComp={this.ToThirdComponentFunc}
                 ToPreviousComp={this.FromSecondBackToFirstFunc}
               />
-              <h1 className='text-center qHeadings mb-5'>Comming soon...</h1>
             </ShowDelayed>
             <ShowWhileDelayed wait={2000}>
               <Loading process={'Finding your best match...'} />
@@ -790,7 +789,8 @@ class App extends React.Component {
               /> */}
               <div className='container'>
                 <h1 className='text-center qHeadings mb-5'>
-                  Let us contact you to discuss your next event!
+                  We've found your perfect venue match! Please provide your
+                  email to share all the details.
                 </h1>
 
                 <div className='row mt-5'>

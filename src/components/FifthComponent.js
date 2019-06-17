@@ -4,7 +4,7 @@ const FifthComponent = props => {
   return (
     <div className='container'>
       <h1 className='text-center qHeadings mb-5'>
-        Select your budget for the venue only
+        Your estimated budget for the venue only
       </h1>
       <div className='row budgetAlign' onClick={props.ToNextComp}>
         {props.filterBy5}
