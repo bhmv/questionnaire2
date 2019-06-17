@@ -3,6 +3,7 @@ import venues from './API/venues';
 import './App.css';
 import './AppMobile.css';
 import Header from './Header';
+import $ from 'jquery';
 
 import FirstComponent from './components/FirstComponent';
 import SecondComponent from './components/SecondComponent';
