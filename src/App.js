@@ -14,7 +14,6 @@ import SeventhComponent from './components/SeventhComponent';
 import ShowDelayed from './components/ShowDelayed';
 import ShowWhileDelayed from './components/ShowWhileDelayed';
 import Loading from './components/Loading';
-import Popup from './components/Popup';
 
 import corporate from './images/occasion/corporate.png';
 import weddings from './images/occasion/weddings.png';
@@ -73,20 +72,16 @@ class App extends React.Component {
       filteredOut5: venues.filter(venue => venue.featured === 1),
       value: '',
       absoluteButton: false,
-      showPopup: false
+      resultsSent: false
     };
 
     this.handleChange = this.handleChange.bind(this);
-    console.log(
-      '%c%s',
-      'color:red; background:blue; font-size: 20pt',
-      'blah ;)'
-    );
+    console.log('%c%s', 'color:red; background:blue; font-size: 20pt', ';)');
   }
 
-  togglePopup() {
+  sendEmailWithResults() {
     this.setState({
-      showPopup: !this.state.showPopup
+      resultsSent: !this.state.resultsSent
     });
   }
 
@@ -706,14 +701,13 @@ class App extends React.Component {
           />
           <input
             type='submit'
-            value='Send'
+            value={
+              this.state.resultsSent === true ? 'Check Your Email' : 'Send'
+            }
             className='backBtn backBtnEnd sendFinalResultsButton'
-            onClick={this.togglePopup.bind(this)}
+            onClick={this.sendEmailWithResults.bind(this)}
           />
         </form>
-        {this.state.showPopup ? (
-          <Popup text='Close Me' closePopup={this.togglePopup.bind(this)} />
-        ) : null}
         {/* TODO: */}
         {/* TODO: */}
         {/* TODO: */}
