@@ -3,11 +3,11 @@ import $ from 'jquery';
 
 class Popup extends React.Component {
   render() {
-    $(document).ready(function() {
-      $('.popup').hover(function() {
+    setTimeout(() => {
+      $(document).ready(function() {
         $('.popup_inner').fadeOut();
       });
-    });
+    }, 3000);
     return (
       <div className='popup'>
         <div className='popup_inner'>
