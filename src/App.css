@@ -326,7 +326,7 @@ img:hover {
 .sendFinalResultsButton {
   position: absolute;
   left: 50%;
-  top: 326px;
+  top: 325px;
 }
 .console {
   margin-right: 25%;
@@ -334,11 +334,11 @@ img:hover {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   .sendFinalResultsButton {
     left: 20%;
-    top: 432px;
+    top: 450px;
   }
   .console {
     margin-right: 2%;
-    margin-top: 10% !important;
+    margin-top: 23% !important;
   }
   .popup {
     position: absolute;
