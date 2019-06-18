@@ -20,7 +20,7 @@ class SeventhComponent extends React.Component {
     return (
       <div className='container'>
         <h1 className='text-center qHeadings mb-5'>
-          Check out our venue recommendations that best fit your needs.
+          Check out our venue recommendations <br /> that best fit your needs.
         </h1>
 
         <div className='text-center'>
