@@ -118,15 +118,24 @@ class App extends React.Component {
     event.preventDefault();
   }
   selectFilter = filter => {
+    let one = venues.filter(venue =>
+      venue['Attribute 3 value(s)'].includes(`${filter.filter}`)
+    );
+    let two = venues.filter(venue =>
+      venue['Attribute 3 value(s)'].includes(`${filter.filter2}`)
+    );
+    let three = venues.filter(venue =>
+      venue['Attribute 3 value(s)'].includes(`${filter.filter3}`)
+    );
+    let four = one.concat(two, three);
     this.setState({
       // selectedFilter: filter,
       // venues:
       //   filter === 'All'
       //     ? venues
       //     : venues.filter(venue => venue.category === filter.key),
-      filteredOut1: venues.filter(
-        venue => venue['Attribute 3 value(s)'] === filter.filter
-      )
+
+      filteredOut1: four
     });
   };
 
@@ -137,7 +146,10 @@ class App extends React.Component {
     let two = venues.filter(venue =>
       venue['Attribute 5 value(s)'].includes(`${filter.filter2}`)
     );
-    let three = one.concat(two);
+    let three = venues.filter(venue =>
+      venue['Attribute 5 value(s)'].includes(`${filter.filter3}`)
+    );
+    let four = one.concat(two, three);
     this.setState({
       // selectedFilter2: filter,
       // venues:
@@ -151,7 +163,7 @@ class App extends React.Component {
       // filteredOutFilter2: this.state.filteredOut1.filter(venue =>
       //   venue.type.includes(`${filter.filter2}`)
       // ),
-      filteredOut2: three
+      filteredOut2: four
     });
   };
 
@@ -230,17 +242,23 @@ class App extends React.Component {
       {
         key: 'Corporate',
         value: 'corporate',
-        filter: 'Corporate, Social, Wedding'
+        filter: 'Corporate',
+        filter2: 'Social',
+        filter3: 'Wedding'
       },
       {
         key: 'Weddings',
         value: 'weddings',
-        filter: 'Corporate, Social, Wedding'
+        filter: 'Corporate',
+        filter2: 'Social',
+        filter3: 'Wedding'
       },
       {
         key: 'Social',
         value: 'social',
-        filter: 'Corporate, Social, Wedding'
+        filter: 'Corporate',
+        filter2: 'Social',
+        filter3: 'Wedding'
       }
     ];
 
@@ -250,7 +268,8 @@ class App extends React.Component {
         key: 'Ballroom & Banquet Hall',
         value: 'ballroom',
         filter: 'Ballroom',
-        filter2: 'Banquet Hall'
+        filter2: 'Banquet',
+        filter3: 'Hall'
       },
       {
         key: 'Church & Temple',
@@ -295,7 +314,8 @@ class App extends React.Component {
         key: 'Mansion & Private Property',
         value: 'mansion',
         filter: 'Mansion',
-        filter2: 'Private Property'
+        filter2: 'Private',
+        filter3: 'Property'
       },
       {
         key: 'Modern',
@@ -310,8 +330,8 @@ class App extends React.Component {
       {
         key: 'Party at Sea',
         value: 'party',
-        filter: 'Party at Sea',
-        filter2: 'Party'
+        filter: 'Party',
+        filter2: 'Sea'
       },
       {
         key: 'Restaurant & Bar',
@@ -364,14 +384,12 @@ class App extends React.Component {
       {
         key: 'Downtown Miami',
         value: 'downtownmiami',
-        filter: 'Downtown',
-        filter2: 'Miami'
+        filter: 'Downtown'
       },
       {
         key: 'North Miami',
         value: 'northmiami',
-        filter: 'North',
-        filter2: 'Miami'
+        filter: 'North'
       },
       {
         key: 'Coconut Grove',
@@ -388,8 +406,7 @@ class App extends React.Component {
       {
         key: 'South Miami',
         value: 'southmiami',
-        filter: 'South',
-        filter2: 'Miami'
+        filter: 'South'
       },
       {
         key: 'Central Dade',
@@ -412,15 +429,13 @@ class App extends React.Component {
       {
         key: 'Broward County',
         value: 'browardcounty',
-        filter: 'Broward',
-        filter2: 'County'
+        filter: 'Broward'
       },
       {
         key: 'Palm Beach County',
         value: 'palmbeachcounty',
         filter: 'Palm',
-        filter2: 'Beach',
-        filter3: 'County'
+        filter2: 'Beach'
       }
     ];
     const filters4 = [
@@ -860,6 +875,7 @@ class App extends React.Component {
                   <div className='col-sm' />
                   <div className='col-sm'>
                     <iframe
+                      title='formKeep'
                       className='iframe'
                       name='output_frame'
                       src=''
