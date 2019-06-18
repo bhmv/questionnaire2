@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 import placeholder from '../images/other/placeholder.jpg';
+import pdfIcon from '../images/other/pdf-icon.png';
 
 class SeventhComponent extends React.Component {
   printDocument() {
@@ -28,7 +29,7 @@ class SeventhComponent extends React.Component {
             trigger={() => (
               <button className='backBtn backBtnEnd mt-5 mb-5 console'>
                 <a className='print' href='#'>
-                  SAVE
+                  <img src={pdfIcon} alt='' />
                 </a>
               </button>
             )}

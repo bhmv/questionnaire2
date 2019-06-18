@@ -1,6 +1,9 @@
 * {
   font-family: 'Antic Didone', serif;
 }
+*:focus {
+  outline: none !important;
+}
 
 body {
   margin: 0;

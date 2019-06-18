@@ -323,21 +323,26 @@ img:hover {
 .displayNone {
   display: none;
 }
+
 .sendFinalResultsButton {
   position: absolute;
-  left: 50%;
+  left: 52%;
   top: 325px;
+  border-radius: 50px !important;
+  width: 65px;
 }
 .console {
-  margin-right: 25%;
+  margin-right: 12%;
+  border-radius: 50px !important;
+  width: 65px;
 }
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   .sendFinalResultsButton {
-    left: 20%;
-    top: 450px;
+    left: 32%;
+    top: 525px;
   }
   .console {
-    margin-right: 2%;
+    margin-left: 32%;
     margin-top: 23% !important;
   }
   .popup {
@@ -350,7 +355,7 @@ img:hover {
 .popup {
   position: absolute;
   top: 417px;
-  left: 39%;
+  left: 42%;
   color: white;
 }
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
@@ -360,4 +365,14 @@ img:hover {
     left: 18%;
     color: white;
   }
+}
+.mailIcon {
+  background-image: url('./images/other/mail-icon.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.mailIcon2 {
+  background-image: url('./images/other/mail-icon-sent.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }

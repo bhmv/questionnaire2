@@ -52,6 +52,8 @@ import northmiami from './images/locations/northmiami.jpg';
 import palmbeachcounty from './images/locations/palmbeachcounty.jpg';
 import southmiami from './images/locations/southmiami.jpg';
 
+import mailIcon from './images/other/mail-icon.png';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -778,8 +780,12 @@ class App extends React.Component {
           />
           <input
             type='submit'
-            value={this.state.resultsSent === true ? 'Sent' : 'Send'}
-            className='backBtn backBtnEnd sendFinalResultsButton'
+            value={this.state.resultsSent === true ? '' : ''}
+            className={
+              this.state.resultsSent === true
+                ? 'backBtn backBtnEnd sendFinalResultsButton mailIcon2'
+                : 'backBtn backBtnEnd sendFinalResultsButton mailIcon'
+            }
             onClick={this.sendEmailWithResults.bind(this)}
           />
           {this.state.resultsSent ? (
