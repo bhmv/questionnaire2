@@ -342,15 +342,15 @@ img:hover {
   }
   .popup {
     position: absolute;
-    top: 600px;
+    top: 620px;
     left: 28%;
     color: white;
   }
 }
 .popup {
   position: absolute;
-  top: 452px;
-  left: 41%;
+  top: 417px;
+  left: 39%;
   color: white;
 }
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
