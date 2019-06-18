@@ -98,7 +98,7 @@ class App extends React.Component {
 
     console.log(
       '%c%s',
-      'color:red; background:blue; font-size: 20pt',
+      'color:red; background:blue; font-size: 10pt',
       renderTimeOfTheDay()
     );
   }
