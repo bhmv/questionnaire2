@@ -3,7 +3,6 @@ import venues from './API/venues';
 import './App.css';
 import './AppMobile.css';
 import Header from './Header';
-import $ from 'jquery';
 
 import FirstComponent from './components/FirstComponent';
 import SecondComponent from './components/SecondComponent';
@@ -66,19 +65,42 @@ class App extends React.Component {
       // menu: { open: false },
       cmp: true,
       cmp2: false,
-      test: true,
+      cmp3: false,
+      cmp4: false,
+      cmp5: false,
       filteredOut1: [],
       filteredOut2: [],
       filteredOut3: [],
       filteredOut4: [],
-      filteredOut5: venues.filter(venue => venue.featured === 1),
+      filteredOut5: venues.filter(venue => venue['Is featured?'] === 1),
       value: '',
       absoluteButton: false,
       resultsSent: false
     };
 
     this.handleChange = this.handleChange.bind(this);
-    console.log('%c%s', 'color:red; background:blue; font-size: 20pt', ';)');
+
+    const renderTimeOfTheDay = (currentTime = new Date()) => {
+      const currentHour = currentTime.getHours();
+      const splitAfternoon = 12; // 24hr time to split the afternoon
+      const splitEvening = 17; // 24hr time to split the evening
+
+      if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
+        // Between 12 PM and 5PM
+        return 'Good afternoon!';
+      } else if (currentHour >= splitEvening) {
+        // Between 5PM and Midnight
+        return 'Good evening!';
+      }
+      // Between dawn and noon
+      return 'Good morning!';
+    };
+
+    console.log(
+      '%c%s',
+      'color:red; background:blue; font-size: 20pt',
+      renderTimeOfTheDay()
+    );
   }
 
   sendEmailWithResults() {
@@ -102,13 +124,19 @@ class App extends React.Component {
       //   filter === 'All'
       //     ? venues
       //     : venues.filter(venue => venue.category === filter.key),
-      filteredOut1: venues.filter(venue => venue.category === filter.filter)
+      filteredOut1: venues.filter(
+        venue => venue['Attribute 3 value(s)'] === filter.filter
+      )
     });
   };
 
   selectFilter2 = filter => {
-    let one = venues.filter(venue => venue.type.includes(`${filter.filter}`));
-    let two = venues.filter(venue => venue.type.includes(`${filter.filter2}`));
+    let one = venues.filter(venue =>
+      venue['Attribute 5 value(s)'].includes(`${filter.filter}`)
+    );
+    let two = venues.filter(venue =>
+      venue['Attribute 5 value(s)'].includes(`${filter.filter2}`)
+    );
     let three = one.concat(two);
     this.setState({
       // selectedFilter2: filter,
@@ -128,6 +156,16 @@ class App extends React.Component {
   };
 
   selectFilter3 = filter => {
+    let one = this.state.filteredOut2.filter(venue =>
+      venue['Attribute 4 value(s)'].includes(`${filter.filter}`)
+    );
+    let two = this.state.filteredOut2.filter(venue =>
+      venue['Attribute 4 value(s)'].includes(`${filter.filter2}`)
+    );
+    let three = this.state.filteredOut2.filter(venue =>
+      venue['Attribute 4 value(s)'].includes(`${filter.filter3}`)
+    );
+    let four = one.concat(two, three);
     this.setState({
       // selectedFilter3: filter,
       // venues:
@@ -136,23 +174,21 @@ class App extends React.Component {
       //     : this.state.filteredOut2.filter(
       //         venue => venue.location === filter.key
       //       ),
-      filteredOut3: this.state.filteredOut2.filter(
-        venue => venue.location === filter.key
-      )
+      filteredOut3: four
     });
   };
   selectFilter4 = filter => {
     let one = this.state.filteredOut3.filter(venue =>
-      venue.etaNumber.includes(`${filter.filter}`)
+      venue['Attribute 2 value(s)'].includes(`${filter.filter}`)
     );
     let two = this.state.filteredOut3.filter(venue =>
-      venue.etaNumber.includes(`${filter.filter2}`)
+      venue['Attribute 2 value(s)'].includes(`${filter.filter2}`)
     );
     let three = this.state.filteredOut3.filter(venue =>
-      venue.etaNumber.includes(`${filter.filter3}`)
+      venue['Attribute 2 value(s)'].includes(`${filter.filter3}`)
     );
     let four = this.state.filteredOut3.filter(venue =>
-      venue.etaNumber.includes(`${filter.filter4}`)
+      venue['Attribute 2 value(s)'].includes(`${filter.filter4}`)
     );
 
     let five = one.concat(two, three, four);
@@ -167,23 +203,24 @@ class App extends React.Component {
   };
   selectFilter5 = filter => {
     let one = this.state.filteredOut4.filter(venue =>
-      venue.budget.includes(`${filter.filter}`)
+      venue['Attribute 1 value(s)'].includes(`${filter.filter}`)
     );
     let two = this.state.filteredOut4.filter(venue =>
-      venue.budget.includes(`${filter.filter2}`)
+      venue['Attribute 1 value(s)'].includes(`${filter.filter2}`)
     );
     let three = this.state.filteredOut4.filter(venue =>
-      venue.budget.includes(`${filter.filter3}`)
+      venue['Attribute 1 value(s)'].includes(`${filter.filter3}`)
     );
     // let featured = venues.filter(venue => venue.featured === 1);
     let four = one.concat(two, three);
+    let five = [...new Set(four)];
     this.setState({
       // selectedFilter5: filter,
       // venues:
       //   filter === 'All'
       //     ? venues
       //     : this.state.filteredOut4.filter(venue => venue.budget === filter),
-      filteredOut5: four
+      filteredOut5: five
     });
   };
 
@@ -313,51 +350,77 @@ class App extends React.Component {
       // { key: 'All', value: '' },
       {
         key: 'Miami Beach',
-        value: 'browardcounty'
+        value: 'browardcounty',
+        filter: 'Miami',
+        filter2: 'Beach'
       },
       {
         key: 'Design District/Wynwood',
-        value: 'designdistrictwynwood'
+        value: 'designdistrictwynwood',
+        filter: 'Design',
+        filter2: 'District',
+        filter3: 'Wynwood'
       },
       {
         key: 'Downtown Miami',
-        value: 'downtownmiami'
+        value: 'downtownmiami',
+        filter: 'Downtown',
+        filter2: 'Miami'
       },
       {
         key: 'North Miami',
-        value: 'northmiami'
+        value: 'northmiami',
+        filter: 'North',
+        filter2: 'Miami'
       },
       {
         key: 'Coconut Grove',
-        value: 'coconutgrove'
+        value: 'coconutgrove',
+        filter: 'Coconut',
+        filter2: 'Grove'
       },
       {
         key: 'Coral Gables',
-        value: 'coralgables'
+        value: 'coralgables',
+        filter: 'Coral',
+        filter2: 'Gables'
       },
       {
         key: 'South Miami',
-        value: 'southmiami'
+        value: 'southmiami',
+        filter: 'South',
+        filter2: 'Miami'
       },
       {
         key: 'Central Dade',
-        value: 'centraldade'
+        value: 'centraldade',
+        filter: 'Central',
+        filter2: 'Dade'
       },
       {
         key: 'Key Biscayne',
-        value: 'keybiscayne'
+        value: 'keybiscayne',
+        filter: 'Key',
+        filter2: 'Biscayne'
       },
       {
         key: 'Florida Keys',
-        value: 'floridakeys'
+        value: 'floridakeys',
+        filter: 'Florida',
+        filter2: 'Keys'
       },
       {
         key: 'Broward County',
-        value: 'browardcounty'
+        value: 'browardcounty',
+        filter: 'Broward',
+        filter2: 'County'
       },
       {
         key: 'Palm Beach County',
-        value: 'palmbeachcounty'
+        value: 'palmbeachcounty',
+        filter: 'Palm',
+        filter2: 'Beach',
+        filter3: 'County'
       }
     ];
     const filters4 = [
@@ -669,9 +732,6 @@ class App extends React.Component {
       <div>
         <Header StartOverTheApp={this.StartOverTheApp} />
 
-        {/* TODO: */}
-        {/* TODO: */}
-        {/* TODO: */}
         <form
           id='contact-form'
           className={!this.state.absoluteButton ? 'displayNone' : null}
