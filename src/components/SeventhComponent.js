@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-import placeholder from '../images/other/placeholder.png';
+import placeholder from '../images/other/placeholder.jpg';
 
 class SeventhComponent extends React.Component {
   printDocument() {
@@ -19,7 +19,7 @@ class SeventhComponent extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='text-center qHeadings mb-5'>
+        <h1 className='text-center qHeadings mb-3'>
           Check out our venue recommendations <br /> that best fit your needs.
         </h1>
 
