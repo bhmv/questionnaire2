@@ -7,11 +7,11 @@ const SecondComponent = props => {
       <div className='row' onClick={props.ToNextComp}>
         {props.filterBy2}
       </div>
-      {/* <div className='text-center'>
-          <button onClick={props.StartOverTheApp} className='backBtn mt-5 mb-5'>
-            BACK
-          </button>
-        </div> */}
+      <div className='text-center'>
+        <button onClick={props.ToPreviousComp} className='backBtn mt-5 mb-5'>
+          BACK
+        </button>
+      </div>
     </div>
   );
 };

@@ -12,7 +12,10 @@ class ThirdComponent extends React.Component {
           {this.props.filterBy3}
         </div>
         <div className='text-center'>
-          <button onClick={this.StartOverTheApp} className='backBtn mt-5 mb-5'>
+          <button
+            onClick={this.props.ToPreviousComp}
+            className='backBtn mt-5 mb-5'
+          >
             BACK
           </button>
         </div>

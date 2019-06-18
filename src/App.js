@@ -811,7 +811,7 @@ class App extends React.Component {
               <SecondComponent
                 filterBy2={tabItems2}
                 ToNextComp={this.ToThirdComponentFunc}
-                ToPreviousComp={this.FromSecondBackToFirstFunc}
+                ToPreviousComp={this.StartOverTheApp}
               />
             </ShowDelayed>
             <ShowWhileDelayed wait={2000}>
