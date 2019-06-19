@@ -54,7 +54,7 @@ class SeventhComponent extends React.Component {
               >
                 <span
                   className={
-                    venue.featured === 1
+                    venue['Is featured?'] === 1
                       ? 'sameImgSize notify-badge'
                       : 'sameImgSize doNotShowBadge'
                   }
@@ -69,7 +69,7 @@ class SeventhComponent extends React.Component {
                     e.target.src = placeholder;
                   }}
                   className={
-                    venue.featured === 1
+                    venue['Is featured?'] === 1
                       ? 'sameImgSize HOVE'
                       : 'sameImgSize HOVE'
                   }

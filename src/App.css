@@ -339,7 +339,7 @@ img:hover {
 .popup {
   position: absolute;
   top: 417px;
-  left: 42%;
+  left: 43%;
   color: white;
 }
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
