@@ -327,7 +327,7 @@ img:hover {
 .sendFinalResultsButton {
   position: absolute;
   left: 52%;
-  top: 325px;
+  top: 315px;
   border-radius: 50px !important;
   width: 65px;
 }
@@ -375,4 +375,7 @@ img:hover {
   background-image: url('./images/other/mail-icon-sent.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+.margin10 {
+  margin-top: -10px;
 }
