@@ -52,8 +52,6 @@ import northmiami from './images/locations/northmiami.jpg';
 import palmbeachcounty from './images/locations/palmbeachcounty.jpg';
 import southmiami from './images/locations/southmiami.jpg';
 
-import mailIcon from './images/other/mail-icon.png';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -76,11 +74,15 @@ class App extends React.Component {
       filteredOut4: [],
       filteredOut5: venues.filter(venue => venue['Is featured?'] === 1),
       value: '',
+      valueName: '',
+      valueNumber: '',
       absoluteButton: false,
       resultsSent: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
+    this.handleChange3 = this.handleChange3.bind(this);
 
     const renderTimeOfTheDay = (currentTime = new Date()) => {
       const currentHour = currentTime.getHours();
@@ -113,6 +115,14 @@ class App extends React.Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
+  }
+
+  handleChange2(event) {
+    this.setState({ valueName: event.target.value });
+  }
+
+  handleChange3(event) {
+    this.setState({ valueNumber: event.target.value });
   }
 
   handleSubmit(event) {
@@ -755,7 +765,12 @@ class App extends React.Component {
         >
           <input type='hidden' name='contact_number' />
 
-          <input type='text' name='user_name' className='displayNone' />
+          <input
+            type='text'
+            name='user_name'
+            className='displayNone'
+            value={this.state.valueName}
+          />
 
           <input
             type='email'
@@ -769,15 +784,42 @@ class App extends React.Component {
             type='text'
             name='contact'
             value={this.state.filteredOut5.map(
-              venue =>
-                `${
+              venue => `<table style='border: 0px solid rgba(0, 0, 0, 0);
+ border-collapse: separate;
+ border-spacing: 6px;
+ table-layout: fixed;
+ text-align: center;
+ width: 100%;'>
+ <tbody>
+  <tr>
+   <td><a href='http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
+     / +/g,
+     '-'
+   ).toLowerCase()}'>
+    <img src="${venue.Images}" alt="No Image" style='height: auto;
+ max-width: 50%; max-height: 50%; box-sizing: border-box;
+ -webkit-box-shadow: 0 0 10px #999;
+ box-shadow: 0 0 10px #999; height="100" width="100"'></a>
+    <p><a href='http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
+      / +/g,
+      '-'
+    ).toLowerCase()}' style='font-size: 22px; color: black; text-decoration: none;'>${
+                venue.Name
+              }</a></p><br/><br/><br/>
+              
+   </td>
+  </tr>
+ </tbody>
+</table>`
+            )}
+          />
+          {/* `<img src="${venue.Images}" alt="" height="42" width="42"/>${
                   venue.Name
                 } URL: http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
                   / +/g,
                   '-'
-                ).toLowerCase()}`
-            )}
-          />
+                ).toLowerCase()}` */}
+
           <input
             type='submit'
             value={this.state.resultsSent === true ? '' : ''}
@@ -905,6 +947,8 @@ class App extends React.Component {
                             placeholder='NAME'
                             required
                             name='name'
+                            value={this.state.valueName}
+                            onChange={this.handleChange2}
                           />
                           <div className='valid-tooltip'>Looks good!</div>
                         </div>
@@ -912,11 +956,13 @@ class App extends React.Component {
                       <div className='form-row'>
                         <div className='col-md-4 mb-3'>
                           <input
-                            type='text'
+                            type='number'
                             className='form-control bhInput'
                             id='validationTooltip02'
                             placeholder='PHONE'
                             required
+                            value={this.state.valueNumber}
+                            onChange={this.handleChange3}
                           />
                           <div className='valid-tooltip'>Looks good!</div>
                         </div>

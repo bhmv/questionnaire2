@@ -24,7 +24,7 @@ class SeventhComponent extends React.Component {
           Check out our venue recommendations <br /> that best fit your needs.
         </h1>
 
-        <div className='text-center margin10'>
+        <div className='text-center blah'>
           <ReactToPrint
             trigger={() => (
               <button className='backBtn backBtnEnd mt-5 mb-5 console'>
