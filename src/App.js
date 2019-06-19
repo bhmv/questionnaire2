@@ -779,12 +779,7 @@ class App extends React.Component {
             value={this.state.value}
           />
 
-          <textarea
-            className='displayNone'
-            type='text'
-            name='contact'
-            value={this.state.filteredOut5.map(
-              venue => `<table style='border: 0px solid rgba(0, 0, 0, 0);
+          {/* <table style='border: 0px solid rgba(0, 0, 0, 0);
  border-collapse: separate;
  border-spacing: 6px;
  table-layout: fixed;
@@ -797,9 +792,9 @@ class App extends React.Component {
      '-'
    ).toLowerCase()}'>
     <img src="${venue.Images}" alt="No Image" style='height: auto;
- max-width: 50%; max-height: 50%; box-sizing: border-box;
+ max-width: 600px !important; max-height: 400px !important; box-sizing: border-box;
  -webkit-box-shadow: 0 0 10px #999;
- box-shadow: 0 0 10px #999; height="100" width="100"'></a>
+ box-shadow: 0 0 10px #999;'></a>
     <p><a href='http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
       / +/g,
       '-'
@@ -810,7 +805,33 @@ class App extends React.Component {
    </td>
   </tr>
  </tbody>
-</table>`
+</table> */}
+
+          <textarea
+            className='displayNone'
+            type='text'
+            name='contact'
+            value={this.state.filteredOut5.map(
+              venue => `<div><a href='http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
+                / +/g,
+                '-'
+              ).toLowerCase()}' style='text-decoration: none; color: #234143;'>
+<div style='
+              margin: auto;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              width: 30%;
+              padding: 200px 10px;
+              background-color: #234143;
+              background-image: url("${venue.Images}") !important;
+              background-size: cover;
+              '>
+  
+</div>
+  <p style='text-align: center; top: 30px; color: #234143; font-size: 16px; font-falily: Arial;'><b>${
+    venue.Name
+  }</p></a>
+  </div>`
             )}
           />
           {/* `<img src="${venue.Images}" alt="" height="42" width="42"/>${
@@ -1147,11 +1168,13 @@ class App extends React.Component {
     setInterval(() => {
       this.setState({ absoluteButton: true });
     }, 4000);
-    const segment = `form submitted`;
+    const segment = `${this.state.valueName}(${
+      this.state.valueNumber
+    }) submitted the form ${this.state.value}`;
     window.analytics.track(segment);
-    window.analytics.identify('userId12345', {
-      email: 'lkdevtst@gmail.com'
-    });
+    // window.analytics.identify('userId12345', {
+    //   email: 'lkdevtst@gmail.com'
+    // });
   };
   StartOverTheApp = () => {
     // this.setState({
