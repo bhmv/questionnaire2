@@ -57,6 +57,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       venues: venues,
+      venuesAPI: [],
       // selectedFilter: 'All',
       // selectedFilter2: 'All',
       // selectedFilter3: 'All',
@@ -85,6 +86,27 @@ class App extends React.Component {
     this.handleChange3 = this.handleChange3.bind(this);
 
     console.log('%c%s', 'color:red; background:blue; font-size: 10pt', '::');
+  }
+  // http://billhansenmiamivenues.com/wp-json/wp/v2/product
+  componentDidMount() {
+    fetch(
+      'https://raw.githubusercontent.com/bhmv/bhmvqVenueData/master/index.json'
+    )
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ venuesAPI: json });
+      });
+    // -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //   function handleErrors(response) {
+    //     if (!response.ok) {
+    //         throw Error(response.statusText);
+    //     }
+    //     return response;
+    // }
+    // fetch("http://httpstat.us/500")
+    //     .then(handleErrors)
+    //     .then(response => console.log("ok") )
+    //     .catch(error => console.log(error) );
   }
 
   sendEmailWithResults() {
@@ -132,13 +154,13 @@ class App extends React.Component {
   };
 
   selectFilter2 = filter => {
-    let one = venues.filter(venue =>
+    let one = this.state.venuesAPI.filter(venue =>
       venue['Attribute 5 value(s)'].includes(`${filter.filter}`)
     );
-    let two = venues.filter(venue =>
+    let two = this.state.venuesAPI.filter(venue =>
       venue['Attribute 5 value(s)'].includes(`${filter.filter2}`)
     );
-    let three = venues.filter(venue =>
+    let three = this.state.venuesAPI.filter(venue =>
       venue['Attribute 5 value(s)'].includes(`${filter.filter3}`)
     );
     let four = one.concat(two, three);
