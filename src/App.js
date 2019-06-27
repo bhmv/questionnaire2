@@ -542,7 +542,8 @@ class App extends React.Component {
       {
         key: '0-$5,000',
         value: '',
-        filter: '0k-5k'
+        filter: '0k-5k',
+        filter2: '0-5k'
       },
       {
         key: '5,000-$10,000',
