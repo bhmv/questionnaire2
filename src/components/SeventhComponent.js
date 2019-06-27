@@ -21,7 +21,7 @@ class SeventhComponent extends React.Component {
     return (
       <div className='container'>
         <h1 className='text-center qHeadings mb-3'>
-          {!this.props.filteredOut5.length < 1  ? <h1>Check out our venue recommendations <br /> that best fit your needs.</h1> : <h1>No matches found. <br/> Contact us to find your perfect venue fit! </h1> }
+          {!this.props.filteredOut5.length < 1  ? <h1>Check out our venue recommendations <br /> that best fit your needs.</h1> : <h1>No matches found. <br/> We will contact you with more options! </h1> }
         </h1>
 
         <div className='text-center blah'>
