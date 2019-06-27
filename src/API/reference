@@ -1,0 +1,307 @@
+FOR VENUE TYPE ------
+ 
+        SOCIAL or WEDDING or WEDDING
+        filter: 'Corporate',
+        filter2: 'Social',
+        filter3: 'Wedding'
+        .....
+
+
+FOR VENUE TYPE ------
+
+
+        Ballroom & Banquet Hall
+        filter: 'Ballroom',
+        filter2: 'Banquet',
+        filter3: 'Hall'
+        .....
+
+
+        Church & Temple
+        filter: 'Church',
+        filter2: 'Temple'
+        .....
+
+
+
+        Gallery & Museum 
+        filter: 'Gallery',
+        filter2: 'Museum'
+        .....
+
+
+
+        Gallery & Museum
+        filter: 'Gallery',
+        filter2: 'Museum'
+        .....
+
+
+        Garden & Park
+        filter: 'Garden',
+        filter2: 'Park'
+        .....
+
+
+        Historic
+        filter: 'Historic'
+        .....
+
+
+        Hotel & Resort
+        filter: 'Hotel',
+        filter2: 'Resort'
+        .....
+
+
+        Indoor
+        ------
+        filter: 'Indoor'
+
+
+
+        Industrial
+        filter: 'Industrial'
+        .....
+
+
+
+        Mansion & Private Proper
+        filter: 'Mansion',
+        filter2: 'Private',
+        filter3: 'Property'
+        .....
+
+
+        Modern
+        filter: 'Modern'
+        .....
+
+
+        Outdoor
+        filter: 'Outdoor'
+        .....
+
+
+        Party at Sea
+        filter: 'Party',
+        filter2: 'Sea'
+        .....
+
+
+        Restaurant & Bar
+        filter: 'Restaurant',
+        filter2: 'Bar'
+        .....
+
+
+        Rooftop
+        filter: 'Rooftop'
+        .....
+
+
+        Rustic
+        filter: 'Rustic'
+        .....
+
+
+        Studio
+        filter: 'Studio'
+        .....
+
+
+        Theater
+        filter: 'Theater'
+        .....
+
+
+        Waterfront
+        filter: 'Waterfront'
+        .....
+
+
+
+
+
+FOR LOCATIONs ------
+
+
+        Miami Beach',
+        filter: 'Miami',
+        filter2: 'Beach'
+        .....
+      
+
+
+        Design District/Wynwood',
+        filter: 'Design',
+        filter2: 'District',
+        filter3: 'Wynwood'
+        .....
+      
+
+
+        Downtown Miami',
+        filter: 'Downtown'
+        .....
+      
+
+
+        North Miami',
+        filter: 'North'
+        .....
+      
+
+
+        Coconut Grove',
+        filter: 'Coconut',
+        filter2: 'Grove'
+        .....
+      
+
+
+        Coral Gables',
+        filter: 'Coral',
+        filter2: 'Gables'
+        .....
+      
+
+
+        South Miami',
+        filter: 'South'
+        .....
+      
+
+
+        Central Dade',
+        filter: 'Central',
+        filter2: 'Dade'
+        .....
+      
+
+
+        Key Biscayne',
+        filter: 'Key',
+        filter2: 'Biscayne'
+        .....
+      
+
+
+        Florida Keys',
+        filter: 'Florida',
+        filter2: 'Keys'
+        .....
+      
+
+
+        Broward County',
+        filter: 'Broward'
+        .....
+      
+
+
+        Palm Beach County',
+        filter: 'Palm',
+        filter2: 'Beach'
+        .....
+
+
+
+
+FOR NUMBER OF GUESTS ------
+
+        
+        Less than 50
+        filter: '0-50'
+        .....
+      
+      
+        51-100
+        filter: '50-100'
+        .....
+      
+      
+        101-150
+        filter: '100-150'
+        .....
+      
+      
+        151-200
+        filter: '150-200'
+        .....
+      
+      
+        201-250
+        filter: '200-250'
+        .....
+      
+      
+        251-300
+        filter: '250-300'
+        .....
+      
+      
+        301-400
+        filter: '300-400'
+        .....
+      
+      
+        401-500
+        filter: '400-500'
+        .....
+      
+      
+        501-600
+        filter: '500-700'
+        .....
+      
+      
+        601-700
+        filter: '500-700'
+        .....
+      
+      
+        701-1000
+        filter: '700-1000'
+        .....
+      
+      
+        Over 1000
+        filter: '1000-2000'
+        filter2: '2000-3000'
+        filter3: '3000-5000'
+        filter4: '5000-10000'
+        .....
+
+
+
+FOR BUDGET -------
+        
+        0-$5,000',
+        filter: '0k-5k',
+	filter2: '0-5k'
+        .....
+      
+        5,000-$10,000',
+        filter: '5k-10k'
+        .....
+      
+        $10,000-$15,000',
+        filter: '10k-15k'
+        .....
+      
+        $15,000-$20,000',
+        filter: '15k-20k'
+        .....
+      
+        $20,000-$70,000',
+        filter: '20k-30k',
+        filter2: '30k-50k',
+        filter3: '50k-70k'
+        .....
+      
+        $70,000 or more',
+        filter: '70k-100k',
+        filter2: '100k+'
+        .....
+      
