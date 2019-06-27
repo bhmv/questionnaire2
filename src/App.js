@@ -78,8 +78,7 @@ class App extends React.Component {
       valueName: '',
       valueNumber: '',
       absoluteButton: false,
-      resultsSent: false,
-      diego: []
+      resultsSent: false
     };
 
     this.handleChange = this.handleChange.bind(this);
