@@ -311,7 +311,7 @@ img:hover {
 .sendFinalResultsButton {
   position: absolute;
   left: 52%;
-  top: 315px;
+  top: 309px;
   border-radius: 50px !important;
   width: 65px;
 }
@@ -323,7 +323,7 @@ img:hover {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   .sendFinalResultsButton {
     left: 32%;
-    top: 525px;
+    top: 493px;
   }
   .console {
     margin-left: 32%;
