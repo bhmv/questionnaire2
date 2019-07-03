@@ -8,7 +8,7 @@ const Header = props => {
         className='mobileLogoImg'
         src={logo}
         alt=''
-        onClick={props.StartOverTheApp}
+        onClick={props.RedirectHome}
       />
     </div>
   );

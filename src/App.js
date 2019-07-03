@@ -757,7 +757,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header StartOverTheApp={this.StartOverTheApp} />
+        <Header RedirectHome={this.RedirectHome} />
 
         <form
           id='contact-form'
@@ -1191,6 +1191,9 @@ class App extends React.Component {
     // });
     window.location.reload();
   };
+  RedirectHome = () => {
+    window.location.assign("http://billhansenmiamivenues.com/");
+  }
 }
 
 export default App;
