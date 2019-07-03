@@ -385,8 +385,7 @@ class App extends React.Component {
       {
         key: 'Miami Beach',
         value: 'browardcounty',
-        filter: 'Miami',
-        filter2: 'Beach'
+        filter: 'Miami Beach'
       },
       {
         key: 'Design District/Wynwood',
@@ -431,8 +430,7 @@ class App extends React.Component {
       {
         key: 'Key Biscayne',
         value: 'keybiscayne',
-        filter: 'Key',
-        filter2: 'Biscayne'
+        filter: 'Biscayne',
       },
       {
         key: 'Florida Keys',
@@ -448,8 +446,7 @@ class App extends React.Component {
       {
         key: 'Palm Beach County',
         value: 'palmbeachcounty',
-        filter: 'Palm',
-        filter2: 'Beach'
+        filter: 'Palm'
       }
     ];
     const filters4 = [
