@@ -70,8 +70,8 @@ class SeventhComponent extends React.Component {
                   }}
                   className={
                     venue['Is featured?'] === 1
-                      ? 'sameImgSize HOVE'
-                      : 'sameImgSize HOVE'
+                      ? 'sameImgSize HOVE whileLoading'
+                      : 'sameImgSize HOVE whileLoading'
                   }
                 />
 

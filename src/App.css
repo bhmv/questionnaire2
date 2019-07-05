@@ -363,3 +363,6 @@ img:hover {
 .blah {
   margin-top: -10px;
 }
+.whileLoading {
+  background: url('./images/loading.svg') no-repeat;
+}
