@@ -365,4 +365,5 @@ img:hover {
 }
 .whileLoading {
   background: url('./images/loading.svg') no-repeat;
+  background-position: center;
 }
