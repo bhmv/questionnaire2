@@ -39,6 +39,7 @@ import studio from './images/type/studio.jpg';
 import theater from './images/type/theater.jpg';
 import waterfront from './images/type/waterfront.jpg';
 
+
 import browardcounty from './images/locations/browardcounty.jpg';
 import centraldade from './images/locations/centraldade.jpg';
 import coconutgrove from './images/locations/coconutgrove.jpg';
@@ -51,6 +52,7 @@ import miamibeach from './images/locations/miamibeach.jpg';
 import northmiami from './images/locations/northmiami.jpg';
 import palmbeachcounty from './images/locations/palmbeachcounty.jpg';
 import southmiami from './images/locations/southmiami.jpg';
+import redlands from './images/locations/redlands.jpg';
 
 class App extends React.Component {
   constructor(props) {
@@ -73,7 +75,8 @@ class App extends React.Component {
       filteredOut2: [],
       filteredOut3: [],
       filteredOut4: [],
-      filteredOut5: venues.filter(venue => venue['Is featured?'] === 1),
+      // filteredOut5: venues.filter(venue => venue['Is featured?'] === 1),
+      filteredOut5: [],
       value: '',
       valueName: '',
       valueNumber: '',
@@ -447,6 +450,12 @@ class App extends React.Component {
         key: 'Palm Beach County',
         value: 'palmbeachcounty',
         filter: 'Palm'
+      },
+      {
+        key: 'Redlands',
+        value: 'redlands',
+        filter: 'Redlands',
+        filter2: 'Redland'
       }
     ];
     const filters4 = [
@@ -706,6 +715,8 @@ class App extends React.Component {
               ? palmbeachcounty
               : filter.value === 'southmiami'
               ? southmiami
+              : filter.value === 'redlands'
+              ? redlands
               : null
           }
           alt=''
@@ -811,23 +822,12 @@ class App extends React.Component {
             className='displayNone'
             type='text'
             name='contact'
-            value={this.state.filteredOut5.map(
+            value={this.state.filteredOut5.length === 0 ? `<div style='text-align: center;'><h1>We will contact you with more options!</h1></div>` : this.state.filteredOut5.map(
               venue => `<div><a href='http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
                 / +/g,
                 '-'
               ).toLowerCase()}' style='text-decoration: none; color: #234143;'>
-<div style='
-              margin: auto;
-              margin-top: 20px;
-              margin-bottom: 20px;
-              width: 30%;
-              padding: 200px 10px;
-              background-color: #234143;
-              background-image: url("${venue.Images}") !important;
-              background-size: cover;
-              '>
-  
-</div>
+<img style='width: 100%; height: auto;' src='${venue.Images}' />
   <p style='text-align: center; top: 30px; color: #234143; font-size: 16px; font-falily: Arial;'><b>${
     venue.Name
   }</p></a>
@@ -1010,7 +1010,7 @@ class App extends React.Component {
                         value='Send'
                         onClick={this.ToSeventhComponentFunc}
                       >
-                        SUBMIT
+                        NEXT
                       </button>
                     </form>
                   </div>
