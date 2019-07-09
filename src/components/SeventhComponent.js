@@ -20,9 +20,12 @@ class SeventhComponent extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='text-center qHeadings mb-3'>
-          {!this.props.filteredOut5.length < 1  ? <h1>Check out our venue recommendations <br /> that best fit your needs.</h1> : <h1>No matches found. <br/> We will contact you with more options! </h1> }
+        <h1 className='text-center qHeadings mb-5'>
+          {!this.props.filteredOut5.length < 1  ? <div><h1>Check out our venue recommendations <br /> that best fit your needs.</h1><p className='budgetDisclaimer mt-5'>
+Conveniently download or email the results by selecting an option below.</p></div> : <div><h1>No matches found. <br/> Please refine your search! </h1><p className='budgetDisclaimer mt-5 hck'>
+l</p></div> }
         </h1>
+        
 
         <div className='text-center blah'>
           <ReactToPrint

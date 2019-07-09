@@ -822,7 +822,7 @@ class App extends React.Component {
             className='displayNone'
             type='text'
             name='contact'
-            value={this.state.filteredOut5.length === 0 ? `<div style='text-align: center;'><h1>We will contact you with more options!</h1></div>` : this.state.filteredOut5.map(
+            value={this.state.filteredOut5.length === 0 ? `<div style='text-align: center;'><h1>Please refine your search!</h1></div>` : this.state.filteredOut5.map(
               venue => `<div><a href='http://billhansenmiamivenues.com/venues-vendors/${venue.Name.replace(
                 / +/g,
                 '-'

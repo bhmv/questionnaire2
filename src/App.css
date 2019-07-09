@@ -311,7 +311,7 @@ img:hover {
 .sendFinalResultsButton {
   position: absolute;
   left: 52%;
-  top: 309px;
+  top: 410px;
   border-radius: 50px !important;
   width: 65px;
 }
@@ -323,7 +323,7 @@ img:hover {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   .sendFinalResultsButton {
     left: 32%;
-    top: 493px;
+    top: 625px;
   }
   .console {
     margin-left: 32%;
@@ -360,10 +360,14 @@ img:hover {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
-.blah {
-  margin-top: -10px;
-}
+
 .whileLoading {
   background: url('./images/loading.svg') no-repeat;
   background-position: center;
+}
+.blah {
+  margin-top: -10px;
+}
+.hck {
+  color: transparent;
 }
