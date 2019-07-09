@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bd7af78d49b58fb59390d6cfc5f45828",
+    "revision": "9c697356cc3788c9782b469f8a7c97cb",
     "url": "/questionnaire2/index.html"
   },
   {
-    "revision": "64757cf26f4e55464a20",
-    "url": "/questionnaire2/static/css/main.2b87de42.chunk.css"
+    "revision": "ca16bd21aa31ff46242f",
+    "url": "/questionnaire2/static/css/main.da688e5e.chunk.css"
   },
   {
-    "revision": "d93e780268f544c426e8",
-    "url": "/questionnaire2/static/js/2.3275bbab.chunk.js"
+    "revision": "978a6f68dddecfc9944a",
+    "url": "/questionnaire2/static/js/2.d63662e7.chunk.js"
   },
   {
-    "revision": "64757cf26f4e55464a20",
-    "url": "/questionnaire2/static/js/main.d9917a44.chunk.js"
+    "revision": "ca16bd21aa31ff46242f",
+    "url": "/questionnaire2/static/js/main.54a7fe68.chunk.js"
   },
   {
     "revision": "ecc1a2af40906f82776e",
@@ -126,6 +126,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f5586ed45b305f69c60ecd1e3abb5f5c",
     "url": "/questionnaire2/static/media/placeholder.f5586ed4.jpg"
+  },
+  {
+    "revision": "97c38f604026327da46bd73b0bffb854",
+    "url": "/questionnaire2/static/media/redlands.97c38f60.jpg"
   },
   {
     "revision": "75dfc43bdf37d31e62ea8157bba4fbbb",
