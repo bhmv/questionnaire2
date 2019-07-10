@@ -362,6 +362,8 @@ img:hover {
 }
 
 .whileLoading {
+  background-color: transparent;
+  box-shadow: none;
   background: url('./images/loading.svg') no-repeat;
   background-position: center;
 }
