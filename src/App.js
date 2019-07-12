@@ -81,7 +81,12 @@ class App extends React.Component {
       valueName: '',
       valueNumber: '',
       absoluteButton: false,
-      resultsSent: false
+      resultsSent: false,
+      info: '',
+      info2: '',
+      info3: '',
+      info4: '',
+      info5: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -131,7 +136,7 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    // alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
   selectFilter = filter => {
@@ -145,6 +150,7 @@ class App extends React.Component {
       venue['Attribute 3 value(s)'].includes(`${filter.filter3}`)
     );
     let four = one.concat(two, three);
+    let selected = filter.key
     this.setState({
       // selectedFilter: filter,
       // venues:
@@ -152,8 +158,10 @@ class App extends React.Component {
       //     ? venues
       //     : venues.filter(venue => venue.category === filter.key),
 
-      filteredOut1: four
+      filteredOut1: four,
+      info: selected
     });
+    
   };
 
   selectFilter2 = filter => {
@@ -167,6 +175,7 @@ class App extends React.Component {
       venue['Attribute 5 value(s)'].includes(`${filter.filter3}`)
     );
     let four = one.concat(two, three);
+    let selected = filter.key
     this.setState({
       // selectedFilter2: filter,
       // venues:
@@ -180,7 +189,8 @@ class App extends React.Component {
       // filteredOutFilter2: this.state.filteredOut1.filter(venue =>
       //   venue.type.includes(`${filter.filter2}`)
       // ),
-      filteredOut2: four
+      filteredOut2: four,
+      info2: selected
     });
   };
 
@@ -195,6 +205,7 @@ class App extends React.Component {
       venue['Attribute 4 value(s)'].includes(`${filter.filter3}`)
     );
     let four = one.concat(two, three);
+    let selected = filter.key
     this.setState({
       // selectedFilter3: filter,
       // venues:
@@ -203,7 +214,8 @@ class App extends React.Component {
       //     : this.state.filteredOut2.filter(
       //         venue => venue.location === filter.key
       //       ),
-      filteredOut3: four
+      filteredOut3: four,
+      info3: selected
     });
   };
   selectFilter4 = filter => {
@@ -219,6 +231,7 @@ class App extends React.Component {
     let four = this.state.filteredOut3.filter(venue =>
       venue['Attribute 2 value(s)'].includes(`${filter.filter4}`)
     );
+    let selected = filter.key
 
     let five = one.concat(two, three, four);
     this.setState({
@@ -227,7 +240,8 @@ class App extends React.Component {
       //   filter === 'All'
       //     ? venues
       //     : this.state.filteredOut3.filter(venue => venue.etaNumber === filter),
-      filteredOut4: five
+      filteredOut4: five,
+      info4: selected
     });
   };
   selectFilter5 = filter => {
@@ -243,13 +257,15 @@ class App extends React.Component {
     // let featured = venues.filter(venue => venue.featured === 1);
     let four = one.concat(two, three);
     let five = [...new Set(four)];
+    let selected = filter.key
     this.setState({
       // selectedFilter5: filter,
       // venues:
       //   filter === 'All'
       //     ? venues
       //     : this.state.filteredOut4.filter(venue => venue.budget === filter),
-      filteredOut5: five
+      filteredOut5: five,
+      info5: selected
     });
   };
 
@@ -1170,7 +1186,7 @@ class App extends React.Component {
     }, 4000);
     const segment = `${this.state.valueName}(${
       this.state.valueNumber
-    }) submitted the form ${this.state.value}`;
+    }) ${this.state.value} / ${this.state.info} / ${this.state.info2} / ${this.state.info3} / ${this.state.info4} /${this.state.info5}`;
     window.analytics.track(segment);
     // window.analytics.identify('userId12345', {
     //   email: 'lkdevtst@gmail.com'
