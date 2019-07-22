@@ -1168,6 +1168,7 @@ class App extends React.Component {
       cmp7: true
     });
   };
+
   ToSeventhComponentFunc = () => {
     // setTimeout(
     //   function() {
