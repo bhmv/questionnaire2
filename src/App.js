@@ -519,7 +519,7 @@ class App extends React.Component {
         key: "251-300",
         value: "",
         filter: "250-300",
-        filter2: "201-300"
+        filter2: "251-300"
       },
       {
         key: "301-400",
